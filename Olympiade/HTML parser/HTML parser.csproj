@@ -6,4 +6,8 @@
     <RootNamespace>HTML_parser</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="5.0.0" />
+  </ItemGroup>
+
 </Project>

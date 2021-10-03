@@ -1,0 +1,19 @@
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\HTML parser.exe
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\HTML parser.deps.json
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\HTML parser.runtimeconfig.json
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\HTML parser.runtimeconfig.dev.json
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\HTML parser.dll
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\ref\HTML parser.dll
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\HTML parser.pdb
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\HTML parser.csproj.AssemblyReference.cache
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\HTML parser.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\HTML parser.AssemblyInfoInputs.cache
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\HTML parser.AssemblyInfo.cs
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\HTML parser.csproj.CoreCompileInputs.cache
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\HTML parser.dll
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\ref\HTML parser.dll
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\HTML parser.pdb
+D:\GitHub\Olympiade\Olympiade\HTML parser\obj\Debug\net5.0\HTML parser.genruntimeconfig.cache
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\System.CodeDom.dll
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\System.Management.dll
+D:\GitHub\Olympiade\Olympiade\HTML parser\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Management.dll
