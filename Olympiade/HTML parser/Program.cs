@@ -15,45 +15,37 @@ namespace HTML_parser
 			string path = "D:\\file2.html";
 			char[] separators = { ' ', '<', '>' };
 
-			string data = GetData(path);
-			string[] result = SeparateWords(separators, data).ToArray();
+			string[] result = SeparateWords(separators, path).ToArray();
 			
 		}
 
-		public static string GetData(string path)
-		{
-			string result = "";
-			using (FileStream stream = File.OpenRead(path))
-			{
-				StreamReader reader = new(stream, Encoding.UTF8);
-				int i = 0;
-				while (i++ != stream.Length)
-				{
-					char[] temp = new char[1];
-					reader.Read(temp, 0, 1);
-					if (temp[0] != '\0') result += temp[0];
-				}
-			}
-			return result;
-		}
-
-		public static IEnumerable<string> SeparateWords(char[] separators, string inputData)
+		public static IEnumerable<string> SeparateWords(char[] separators, string path)
 		{
 
 			StringBuilder builder = new();
 			Dictionary<string, int> words = new();
 
-			for (int i = 0; i < inputData.Length; ++i)
+			using (FileStream stream = File.OpenRead(path))
 			{
-				if (separators.Contains(inputData[i]))
+				StreamReader reader = new(stream, Encoding.UTF8);
+				int i = 0;
+				while (i++ != stream.Length - 1)
 				{
-					if (words.Keys.Contains(builder.ToString())) words[builder.ToString().ToUpper()] += 1;
-					else words[builder.ToString().ToUpper()] = 1;
+					char[] temp = new char[1];
+					reader.Read(temp, 0, 1);
+					if (temp[0] != '\0')
+					{
+						if (separators.Contains(temp[0]))
+						{
+							if (words.Keys.Contains(builder.ToString())) words[builder.ToString().ToUpper()] += 1;
+							else words[builder.ToString().ToUpper()] = 1;
 
-					builder.Clear();
-					continue;
+							builder.Clear();
+							continue;
+						}
+						builder.Append(temp[0]);
+					}
 				}
-				builder.Append(inputData[i]);
 			}
 			var results = words.Where(item => Regex.IsMatch(item.Key, @"^[а-яА-Я]+$")).OrderByDescending(item => item.Value).ThenBy(item => item.Key).ToArray();
 			foreach (var result in results)
