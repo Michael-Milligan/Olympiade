@@ -15,7 +15,11 @@ namespace HTML_parser
 			string path = "D:\\file2.html";
 			char[] separators = { ' ', '<', '>' };
 
-			string[] result = SeparateWords(separators, path).ToArray();
+			try
+			{
+				string[] result = SeparateWords(separators, path).ToArray();
+			}
+			catch (Exception exception) { Console.WriteLine(exception.Message); }
 			
 		}
 
@@ -25,28 +29,34 @@ namespace HTML_parser
 			StringBuilder builder = new();
 			Dictionary<string, int> words = new();
 
-			using (FileStream stream = File.OpenRead(path))
+			try
 			{
-				StreamReader reader = new(stream, Encoding.UTF8);
-				int i = 0;
-				while (i++ != stream.Length - 1)
+				using (FileStream stream = File.OpenRead(path))
 				{
-					char[] temp = new char[1];
-					reader.Read(temp, 0, 1);
-					if (temp[0] != '\0')
+					StreamReader reader = new(stream, Encoding.UTF8);
+					int i = 0;
+					while (i++ != stream.Length - 1)
 					{
-						if (separators.Contains(temp[0]))
+						char[] temp = new char[1];
+						reader.Read(temp, 0, 1);
+						if (temp[0] != '\0')
 						{
-							if (words.Keys.Contains(builder.ToString())) words[builder.ToString().ToUpper()] += 1;
-							else words[builder.ToString().ToUpper()] = 1;
+							if (separators.Contains(temp[0]))
+							{
+								if (words.Keys.Contains(builder.ToString())) words[builder.ToString().ToUpper()] += 1;
+								else words[builder.ToString().ToUpper()] = 1;
 
-							builder.Clear();
-							continue;
+								builder.Clear();
+								continue;
+							}
+							builder.Append(temp[0]);
 						}
-						builder.Append(temp[0]);
 					}
 				}
 			}
+			catch (DirectoryNotFoundException) { Console.WriteLine("Directory not found. Enter a valid path to one."); yield break; }
+			catch (FileNotFoundException) { Console.WriteLine("File not found. Enter a valid path to one."); yield break; }
+
 			var results = words.Where(item => Regex.IsMatch(item.Key, @"^[а-яА-Я]+$")).OrderByDescending(item => item.Value).ThenBy(item => item.Key).ToArray();
 			foreach (var result in results)
 			{
